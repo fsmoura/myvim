@@ -1,5 +1,10 @@
 syntax on
 
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
