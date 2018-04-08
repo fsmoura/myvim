@@ -6,14 +6,21 @@ set softtabstop=2
 set expandtab
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/emmet-vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'kien/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'raimondi/delimitmate'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'valloric/youcompleteme'
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
 
-:map <C-n> :NERDTreeToggle
+:map <C-b> :NERDTreeToggle
 :map <C-l> :Emmet
+
+let g:ycm_keep_logfiles = 1
+let g:ycm_log_level = 'debug'
