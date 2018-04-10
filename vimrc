@@ -22,5 +22,3 @@ set background=dark
 :map <C-b> :NERDTreeToggle
 :map <C-l> :Emmet
 
-let g:ycm_keep_logfiles = 1
-let g:ycm_log_level = 'debug'
