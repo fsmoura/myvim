@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-surround'
+  Plug 'valloric/matchtagalways'
   " Plug 'valloric/youcompleteme'
 call plug#end()
 
@@ -33,3 +34,11 @@ set background=dark
 " au VimEnter *  NERDTree
 :nmap <C-b> :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=20
+:let NERDTreeMouseMode=2
+
+augroup MouseInNERDTreeOnly
+    autocmd!
+    autocmd BufEnter NERD_tree_* set mouse=a
+    autocmd BufLeave NERD_tree_* set mouse=
+augroup END
+set mouse=
