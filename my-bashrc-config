@@ -1,0 +1,20 @@
+# My aliases and functions
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias cs="sudo apt autoremove && sudo apt autoclean && sudo apt clean"
+
+tunneling() {
+  /usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -NR 8080:localhost:"${1:-8000}" root@45.55.45.92 -p65002
+}
+
+pserve() {
+  php -S localhost:"${1:-8000}"
+}
+
+vpn() {
+  sudo /usr/sbin/openvpn --config $HOME/.vpn/"${1:-fm}".ovpn &
+}
+
+vpnkill() {
+  sudo killall -q openvpn
+}
