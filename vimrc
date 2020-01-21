@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-surround'
   Plug 'valloric/matchtagalways'
+  Plug 'preservim/nerdcommenter'
   " Plug 'valloric/youcompleteme'
 call plug#end()
 
