@@ -25,21 +25,23 @@ call plug#end()
 
 " Color scheme
 colorscheme gruvbox
-set background=dark
+"colorscheme meta5
+"set background=dark
 
 " Set prefix for Emmet plugin
-:map <C-l> :Emmet
+:nmap <C-l> :Emmet
 
 " NERDTree Settings
-" :map <C-b> :NERDTreeToggle
-" au VimEnter *  NERDTree
 :nmap <C-b> :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=20
 :let NERDTreeMouseMode=2
+
+:nmap <C-\> :set wrap!<CR>
 
 augroup MouseInNERDTreeOnly
     autocmd!
     autocmd BufEnter NERD_tree_* set mouse=a
     autocmd BufLeave NERD_tree_* set mouse=
 augroup END
+
 set mouse=
