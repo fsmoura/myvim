@@ -20,13 +20,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'valloric/matchtagalways'
   Plug 'preservim/nerdcommenter'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'pangloss/vim-javascript'
   " Plug 'valloric/youcompleteme'
 call plug#end()
 
 " Color scheme
-colorscheme gruvbox
-"colorscheme meta5
-"set background=dark
+syntax enable
+colorscheme dracula
+
+hi Normal guibg=NONE ctermbg=NONE
+"autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
 " Set prefix for Emmet plugin
 :nmap <C-l> :Emmet
