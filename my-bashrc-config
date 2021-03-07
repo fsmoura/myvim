@@ -11,6 +11,9 @@ alias di="docker image"
 alias dn="docker network"
 alias dcom="docker-compose"
 
+alias php7="docker container run --rm -v `pwd`:/app -w /app -it php:7.4-cli-alpine php"
+alias php8="docker container run --rm -v `pwd`:/app -w /app -it php:8-cli-alpine php"
+
 # Same functions
 tunneling() {
   /usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -NR 8080:localhost:"${1:-8000}" root@45.55.45.92 -p65002
