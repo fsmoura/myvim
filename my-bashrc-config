@@ -15,6 +15,15 @@ alias php7="docker container run --rm -v `pwd`:/app -w /app -it php:7.4-cli-alpi
 alias php8="docker container run --rm -v `pwd`:/app -w /app -it php:8-cli-alpine php"
 
 # Same functions
+
+vpnon() {
+	sudo openvpn3 session-start --config $HOME/.vpn/$1.ovpn
+}
+
+vpnoff() {
+	sudo openvpn3 session-manage --config $HOME/.vpn/$1.ovpn --disconnect
+}
+
 tunneling() {
   /usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -NR 8080:localhost:"${1:-8000}" root@45.55.45.92 -p65002
 }
@@ -23,16 +32,8 @@ pserve() {
   php -S localhost:"${1:-8000}"
 }
 
-vpn() {
-  sudo /usr/sbin/openvpn --config $HOME/.vpn/"${1:-fm}".ovpn &
-}
-
-vpnkill() {
-  sudo killall -q openvpn
-}
-
 zap() {
-  firefox "https://api.whatsapp.com/send?phone=55${1}"
+  ${1:-google-chrome} "https://api.whatsapp.com/send?phone=55${2}"
 }
 
 dcrm() {
