@@ -1,15 +1,20 @@
 # Same aliases
+
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias cs="sudo apt autoremove && sudo apt autoclean && sudo apt clean"
 alias sdoctl="source <(doctl completion bash)"
 alias tb="nc termbin.com 9999"
+alias mzip="zip -0 -s 1536m -re"
 
 # Docker aliases
+
 alias dc="docker container"
 alias di="docker image"
 alias dn="docker network"
 alias dcom="docker-compose"
+
+# PHP container aliases
 
 alias php7="docker container run --rm -v `pwd`:/app -w /app -it php:7.4-cli-alpine php"
 alias php8="docker container run --rm -v `pwd`:/app -w /app -it php:8-cli-alpine php"
@@ -17,7 +22,7 @@ alias php8="docker container run --rm -v `pwd`:/app -w /app -it php:8-cli-alpine
 # Same functions
 
 vpnon() {
-	sudo openvpn3 session-start --config $HOME/.vpn/$1.ovpn
+	sudo openvpn3 session-start --config $HOME/.vpn/$1
 }
 
 vpnoff() {
@@ -28,20 +33,20 @@ tunneling() {
   /usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -NR 8080:localhost:"${1:-8000}" root@45.55.45.92 -p65002
 }
 
-pserve() {
-  php -S localhost:"${1:-8000}"
+dcrm() {
+  docker container stop `docker container ls -aq` && docker container rm `docker container ls -aq`
 }
 
 zap() {
-  ${1:-google-chrome} "https://api.whatsapp.com/send?phone=55${2}"
-}
-
-dcrm() {
-  docker container stop `docker container ls -aq` && docker container rm `docker container ls -aq`
+  ${2:-firefox} "https://api.whatsapp.com/send?phone=55${1}"
 }
 
 cep() {
   curl -s https://brasilapi.com.br/api/cep/v1/"${1}" |jq ."${2:-}"
 }
 
-# export PS1='> '
+whoisbr() {
+  firefox https://registro.br/tecnologia/ferramentas/whois/?search=$1
+}
+
+# export PS1='➔ '
