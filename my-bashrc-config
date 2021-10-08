@@ -22,11 +22,11 @@ alias php8="docker container run --rm -v `pwd`:/app -w /app -it php:8-cli-alpine
 # Same functions
 
 vpnon() {
-	sudo openvpn3 session-start --config $HOME/.vpn/$1
+  sudo openvpn3 session-start --config $HOME/.vpn/$1
 }
 
 vpnoff() {
-	sudo openvpn3 session-manage --config $HOME/.vpn/$1.ovpn --disconnect
+  sudo openvpn3 session-manage --config $HOME/.vpn/$1.ovpn --disconnect
 }
 
 tunneling() {
@@ -37,16 +37,21 @@ dcrm() {
   docker container stop `docker container ls -aq` && docker container rm `docker container ls -aq`
 }
 
-zap() {
-  ${2:-firefox} "https://api.whatsapp.com/send?phone=55${1}"
-}
-
 cep() {
   curl -s https://brasilapi.com.br/api/cep/v1/"${1}" |jq ."${2:-}"
 }
 
+zap() {
+  xdg-open "https://api.whatsapp.com/send?phone=55${1}" &
+}
+
 whoisbr() {
-  firefox https://registro.br/tecnologia/ferramentas/whois/?search=$1
+  domain=$(echo "${1}" |sed -e 's/^http[s]*:\/\///g' -e 's/[[:space:]]//g' -e 's/[\/]*$//g')
+  xdg-open "https://registro.br/tecnologia/ferramentas/whois/?search=${domain}" &
+}
+
+rastreio() {
+  xdg-open "https://rastreamento.correios.com.br/app/resultado.php?objeto=${1}" &
 }
 
 # export PS1='➔ '
