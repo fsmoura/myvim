@@ -50,8 +50,5 @@ whoisbr() {
   xdg-open "https://registro.br/tecnologia/ferramentas/whois/?search=${domain}" &
 }
 
-rastreio() {
-  xdg-open "https://rastreamento.correios.com.br/app/resultado.php?objeto=${1}" &
-}
-
 # export PS1='➔ '
+# export PATH="$PATH:/etc/opt/Bento4-SDK-1-6-0-639.x86_64-unknown-linux/bin/"
