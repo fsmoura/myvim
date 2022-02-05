@@ -1,11 +1,11 @@
-# Same aliases
+# My aliases
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias cs="sudo apt autoremove && sudo apt autoclean && sudo apt clean"
-alias sdoctl="source <(doctl completion bash)"
+# alias sdoctl="source <(doctl completion bash)"
 alias tb="nc termbin.com 9999"
-alias mzip="zip -0 -s 1536m -re"
+# alias mzip="zip -0 -s 1536m -re"
 
 # Docker aliases
 
@@ -48,6 +48,14 @@ zap() {
 whoisbr() {
   domain=$(echo "${1}" |sed -e 's/^http[s]*:\/\///g' -e 's/[[:space:]]//g' -e 's/[\/]*$//g')
   xdg-open "https://registro.br/tecnologia/ferramentas/whois/?search=${domain}" &
+}
+
+upgrade() {
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove
+  sudo apt-get autoclean
+  sudo apt-get clean
 }
 
 # export PS1='➔ '
