@@ -58,5 +58,8 @@ upgrade() {
   sudo apt-get clean
 }
 
-# export PS1='➔ '
-# export PATH="$PATH:/etc/opt/Bento4-SDK-1-6-0-639.x86_64-unknown-linux/bin/"
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach -t Default || tmux new -s Default
+fi
+
+export PS1='➔ '
