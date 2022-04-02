@@ -6,6 +6,7 @@ alias cs="sudo apt autoremove && sudo apt autoclean && sudo apt clean"
 # alias sdoctl="source <(doctl completion bash)"
 alias tb="nc termbin.com 9999"
 # alias mzip="zip -0 -s 1536m -re"
+alias will="echo /media/fm/5E3C70B83C708D31/Users/fm/Cursos/React Avançado\ Crie\ aplicações\ com\ NextJS,\ Strapi\ e\ mais\ [Completo] |pbcopy"
 
 # Docker aliases
 
@@ -64,8 +65,7 @@ upgrade() {
   sudo apt-get clean
 }
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach -t Default || tmux new -s Default
-fi
-
-export PS1='➔ '
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#   # tmux attach -t Default || tmux new -s Default
+#   tmux new
+# fi
